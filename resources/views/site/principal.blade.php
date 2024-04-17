@@ -1,6 +1,6 @@
-@extends('components.layout')
-@section('title','Home')
-@section('conteudo')
+@extends('components.layout') <!-- layout extendido de components layouts -->
+@section('title','Home')<!-- sub a ser titulo rederizado. -->
+@section('conteudo') <!-- conteudo a ser rederizado no layout padrão. -->
 <div class="conteudo-destaque">
 
     <div class="esquerda">

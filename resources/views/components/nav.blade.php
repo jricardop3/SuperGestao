@@ -6,7 +6,7 @@
 
     <div class="menu">
         <ul>
-            <li><a href="/">Principal</a></li> 
+            <li><a href="{{route('site.index')}}">Principal</a></li> 
             <li><a href="/sobrenos">Sobre Nós</a></li>
             <li><a href="/contato">Contato</a></li>
         </ul>
