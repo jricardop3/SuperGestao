@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PrincipalController;
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\SobreNosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +15,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/a', [ PrincipalController::class, 'principal'])->name('site.index');
+Route::get('/', [ PrincipalController::class, 'index'])->name('site.index');
+Route::get('/contato',[ContatoController::Class, 'index'])->name('site.contato');
+Route::post('/contato',[ContatoController::Class, 'index'])->name('site.contato');
+Route::get('/sobre-nos',[SobreNosController::Class, 'index'])->name('site.sobrenos');
 
-Route::get('/', function () {
-    return view('site.principal');
-});
-Route::get('/contato', function () {
-    return view('site.contato');
-});
-Route::get('/sobrenos', function () {
-    return view('site.sobre-nos');
-});
+
