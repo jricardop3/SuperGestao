@@ -1,12 +1,12 @@
 # SuperGestao
  Estudos Curso Laravel/Vue Udemy
- Framework laravel 10.
- PHP 8.1
- ID: VS Code.
- Ambiente de testes/produção: Laragon
+ * Framework laravel 10.
+ * PHP 8.1
+ * IDE: VS Code.
+ ## Ambiente de testes/produção: Laragon
 
 
- ## conceitos/tecnologias/ferramentas
+ ### conceitos/tecnologias/ferramentas
 - Routes: Criação de rotas, grupos, verbos HTTP Get, Post, Delete, Put e Patch.
 
 - Views: Criação de views do lado do back-end da aplicação com a utilização do engine de views Blade;
