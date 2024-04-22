@@ -60,7 +60,7 @@ class ContatoController extends Controller
         //recupera o objeto e salva
         $contato->save();
        
-        return view('site.principal');
+        return view('site.contato');
     }
 
     /**
