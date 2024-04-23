@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contato;
+use App\Models\MotivoContato;
 use Illuminate\Http\Request;
 
 class ContatoController extends Controller
@@ -32,9 +33,11 @@ class ContatoController extends Controller
         //salva no objeto instanciado com o metodo create, com base no request com os parametros recebidos via requisição.
         $contato->create($request->all());
         */
+        $motivo_contatos = MotivoContato::all();
+
         
         
-        return view('site.contato');
+        return view('site.contato', ['motivo_contatos' => $motivo_contatos]);
     }
 
     /**

@@ -8,7 +8,7 @@
 
     <div class="informacao-pagina">
         <div class="contato-principal">
-            @component('components.form')
+            @component('components.form', ['motivo_contatos' => $motivo_contatos])
                 <h1>Olá</h1>
             @endcomponent
         </div>
