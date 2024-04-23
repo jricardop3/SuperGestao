@@ -48,22 +48,36 @@ class ContatoController extends Controller
         //validações do formulário:
         $request->validate([
         'nome' => 'required' ,
-        'telefone' => 'required|min:10|max:11',
-        'email' => 'email' ,
-        'motivo' => 'required' ,
+        'telefone' => 'required|min:8|max:18',
+        'email' => 'email|unique:contatos' ,
+        'motivo_id' => 'required' ,
         'mensagem' => 'required|min:10|max:1500'
-        ]);
+        ],
+        [
+        'nome.required' => 'O preenchimento do nome é obrigatório.' ,
+        'telefone.required' => 'Por favor, preencha o Telefone.',
+        'telefone.min' => 'O Telefone precisa ter no mínimo 8 Digitos.' ,
+        'telefone.max' => 'O Telefone precisa ter no máximo 18 Digitos.' ,
+        'email.email' => 'Preencha o E-mail.' ,
+        'email.unique' => 'Este E-mail já está registrado.' ,
+        'motivo_id.required' => 'Selecione o motivo da mensagem.' ,
+        'mensagem.required' => 'Digite sua mensagem.'
+        ]
+    );
+    
         //instancia um novo objeto recebendo o model contato e separando os request de cada imput individualmente.
         $contato = new Contato();
         $contato->nome = $request->input('nome');
         $contato->telefone = $request->input('telefone');
         $contato->email = $request->input('email');
-        $contato->motivo = $request->input('motivo');
+        $contato->motivo_id = $request->input('motivo_id');
         $contato->mensagem = $request->input('mensagem');
         //recupera o objeto e salva
         $contato->save();
        
-        return view('site.contato');
+        
+        return redirect()->route('site.index');
+    
     }
 
     /**

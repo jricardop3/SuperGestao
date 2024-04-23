@@ -30,8 +30,8 @@ class ContatoFactory extends Factory
                 '81', '82', '83', '84', '85', '86', '87', '88', '89', 
                 '91', '92', '93', '94', '95', '96', '97', '98', '99']) . ' ' . $this->faker->numerify('9########'),
             'email' => $this->faker->email(),
-            'motivo' => $this->faker->numberBetween(1,3),
-            'mensagem' => $this->faker->text(199)
+            'mensagem' => $this->faker->text(199),
+            'motivo_id' => $this->faker->numberBetween(1,3)
         ];
     }
 }
