@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Route::get('/', [ PrincipalController::class, 'index'])->name('site.index')->middleware(LogAcessoMiddleware::class);
+//Route::middleware(LogAcessoMiddleware::class)->get('/', [ PrincipalController::class, 'index'])->name('site.index');// middleware -> get -> controller -> route.
 Route::get('/', [ PrincipalController::class, 'index'])->name('site.index');
 Route::get('/contato',[ContatoController::class, 'index'])->name('site.contato');
 Route::post('/contato',[ContatoController::class, 'create'])->name('site.contato');

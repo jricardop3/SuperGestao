@@ -58,7 +58,7 @@ class ContatoController extends Controller
         'telefone.required' => 'Por favor, preencha o Telefone.',
         'telefone.min' => 'O Telefone precisa ter no mínimo 8 Digitos.' ,
         'telefone.max' => 'O Telefone precisa ter no máximo 18 Digitos.' ,
-        'email.email' => 'Preencha o E-mail.' ,
+        'email.email' => 'O e-mail digitado é inválido.' ,
         'email.unique' => 'Este E-mail já está registrado.' ,
         'motivo_id.required' => 'Selecione o motivo da mensagem.' ,
         'mensagem.required' => 'Digite sua mensagem.'
