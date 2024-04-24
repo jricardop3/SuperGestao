@@ -22,7 +22,7 @@ class LogAcessoMiddleware
         $navegador = $ip = $request->server->get('HTTP_USER_AGENT');
         $ip = $request->server->get('REMOTE_ADDR');
         LogAcesso::create(['log'=> "IP $ip Route $route e navegador $navegador"]);
-        //return $next($request);
-        return Response ('Chegamos aqui!');
+        return $next($request);
+        //return Response ('Chegamos aqui!');
     }
 }
