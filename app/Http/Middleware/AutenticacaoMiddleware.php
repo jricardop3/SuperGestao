@@ -16,11 +16,11 @@ class AutenticacaoMiddleware
     public function handle(Request $request, Closure $next, $metodo_autenticacao, $perfil): Response
     {
 
-        echo "$metodo_autenticacao & $perfil <br>";
-        if(true){
-            return $next($request);
-        }elseif(true){
-        return Response ("acesso negado");
-    }
+       session_start();
+       if(isset($_SESSION['email']) && $_SESSION['email'] != ''){
+        return $next($request);
+       } else {
+        return redirect()->route('site.login', ['erro' => 2]);
+       }
     }
 }
