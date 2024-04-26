@@ -39,6 +39,7 @@ class FornecedorSeeder extends Seeder
        ]);
        */
       
+      Fornecedor::factory(5000)->create();
        
     }
 }

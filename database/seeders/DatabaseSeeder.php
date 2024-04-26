@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             FornecedorSeeder::class,
-            MotivoContatoSeeder::class,
-            ContatoSeeder::class
+            //MotivoContatoSeeder::class,
+            //ContatoSeeder::class
         ]);
 
     }
