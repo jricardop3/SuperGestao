@@ -33,10 +33,11 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/sair',[LoginController::class, 'Sair'])->name('app.sair');
     Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
-    //fornecedor
+    //fornecedor get
     Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('app.fornecedor');
-    Route::get('/fornecedor/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
+    Route::get('/fornecedor/editar/{id}/{msg?}', [FornecedorController::class, 'editar'])->name('app.fornecedor.editar');
     Route::get('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedor.adicionar');
+    //fornecedor post
     Route::post('/fornecedor/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
     Route::post('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedor.adicionar');
     Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');

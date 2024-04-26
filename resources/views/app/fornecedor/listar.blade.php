@@ -7,17 +7,34 @@
     </div>
 
     @component('app.components.sub-nav')@endcomponent <!-- component do logo e menu de navegação. -->
-    <div class="informacao-pagina">
-        <div style="width: 30%; margin-left:auto; margin-right:auto;" >
-            <form action="" method="post">
-            @csrf
-            <input type="text" name="nome" placeholder="Nome" id="" class="borda-preta">
-            <input type="text" name="site" placeholder="Site" id="" class="borda-preta">
-            <input type="text" name="uf" placeholder="UF" id="" class="borda-preta">
-            <input type="text" name="email" placeholder="E-mail" id="" class="borda-preta">
-            <button type="submit" class="borda-preta">Pesquisar</button>
-            </form>
-        </div>
+    <div class="informacao-pagina">       
+        <table border="2px" style="width: 50%; margin-left:auto; margin-right:auto;">
+            <thead>
+                <th>Fornecedor</th>
+                <th>Site</th>
+                <th>UF</th>
+                <th>Email</th>
+            </thead>
+            @foreach ($fornecedores as $fornecedor)
+                <tbody>
+                    <td>
+                        {{$fornecedor->nome}}
+                    </td>
+                    <td>
+                        {{$fornecedor->site}}
+                    </td>
+                    <td>
+                        {{$fornecedor->uf}}
+                    </td>
+                    <td>
+                        {{$fornecedor->email}}
+                    </td>
+                    <td>
+                        <a href="{{route ('app.fornecedor.editar',$fornecedor->id)}}">Editar</a>
+                    </td>
+                </tbody>
+            @endforeach
+        </table>       
     </div>
 </div>
 
