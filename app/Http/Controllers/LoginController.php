@@ -42,9 +42,9 @@ class LoginController extends Controller
             session_start();
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
-            return redirect(route('site.login'));
+            return redirect(route('app.home'));
         }else {
-            return redirect()-> route('app.home');
+            return redirect()-> route('site.login');
         }
         
 
