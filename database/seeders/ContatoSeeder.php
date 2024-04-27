@@ -30,6 +30,6 @@ class ContatoSeeder extends Seeder
             'mensagem'=>'Estou sem internet.'
         ]);
         */
-        Contato::factory(200)->create();
+        Contato::factory(5000)->create();
     }
 }

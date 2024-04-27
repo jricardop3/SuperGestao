@@ -3,48 +3,54 @@
 @section('conteudo')
 <div class="conteudo-pagina">
     <div class="titulo-pagina-f">
-        <h1>Fornecedor - Listar</h1>
+        <h1>Produtos - Listar</h1>
     </div>
 
-    @component('app.components.sub-nav')@endcomponent <!-- component do logo e menu de navegação. -->
-    <div class="informacao-pagina py-5 container">       
+    
+    <div class="informacao-pagina container">
+        <div class="menu">
+            <ul>
+                <li><a href="{{route('produto.create')}}">Cadastrar</a></li>
+                <li><a href="">Consulta</a></li>
+            </ul>
+        </div> <br>      
         <div class="table-responsive">
 
         <table class="table align-middle">
             <thead class="table-dark">
-                <th>Fornecedor</th>
-                <th>Site</th>
-                <th>UF</th>
-                <th>Email</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Peso</th>
+                <th>Unidade ID</th>
                 <th></th>
                 <th></th>
             </thead>
-            @foreach ($fornecedores as $fornecedor)
+            @foreach ($produtos as $produto)
                 <tbody>
                     <td>
-                        {{$fornecedor->nome}}
+                        {{$produto->nome}}
                     </td>
                     <td>
-                        {{$fornecedor->site}}
+                        {{$produto->descricao}}
                     </td>
                     <td>
-                        {{$fornecedor->uf}}
+                        {{$produto->peso}}
                     </td>
                     <td>
-                        {{$fornecedor->email}}
+                        {{$produto->unidade_id}}
                     </td>
                     <td>
-                        <a href="{{route ('app.fornecedor.excluir',$fornecedor->id)}}">Excluir</a>
+                        <a href="">Excluir</a>
                     </td>
                     <td>
-                        <a href="{{route ('app.fornecedor.editar',$fornecedor->id)}}">Editar</a>
+                        <a href="">Editar</a>
                     </td>
                 </tbody>
             @endforeach
         </table>
         </div>
         <div style="width: 40%;" class="mx-auto">
-            {{ $fornecedores-> appends($request)-> links() }}
+            {{ $produtos-> appends($request)-> links() }}
             
         </div>      
     </div>

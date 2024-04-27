@@ -1,5 +1,6 @@
 @if ($paginator->hasPages())
-    <ul class="pagination">
+<nav aria-label="paginate">
+    <ul class="pagination justify-content-center  py-5 my-5">
         {{-- Pagination Elements --}}
         @foreach ($elements as $element)
             {{-- "Three Dots" Separator --}}
@@ -19,4 +20,5 @@
             @endif
         @endforeach
     </ul>
+    </
 @endif
