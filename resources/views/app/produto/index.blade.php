@@ -11,7 +11,7 @@
         <div class="menu">
             <ul>
                 <li><a href="{{route('produto.create')}}">Cadastrar</a></li>
-                <li><a href="">Consulta</a></li>
+                <li><a href="{{route('app.home')}}">voltar</a></li>
             </ul>
         </div> <br>      
         <div class="table-responsive">
@@ -22,6 +22,7 @@
                 <th>Descrição</th>
                 <th>Peso</th>
                 <th>Unidade ID</th>
+                <th></th>
                 <th></th>
                 <th></th>
             </thead>
@@ -40,10 +41,17 @@
                         {{$produto->unidade_id}}
                     </td>
                     <td>
-                        <a href="">Excluir</a>
+                        <a class="btn btn-dark btn-sm" href="{{route('produto.show',['produto'=>$produto->id])}}">Detalhes</a>
                     </td>
                     <td>
-                        <a href="">Editar</a>
+                        <form method="post" action="{{route('produto.destroy', ['produto'=>$produto->id])}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm"  type="submit">Deletar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a class="btn btn-dark btn-sm" href="{{route('produto.edit',['produto'=>$produto->id])}}">Editar</a>
                     </td>
                 </tbody>
             @endforeach

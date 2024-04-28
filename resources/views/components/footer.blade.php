@@ -1,18 +1,20 @@
-<div class="rodape">
+<footer class="container-fluid">
     <div class="redes-sociais">
         <h2>Redes sociais</h2>
-        <img src="{{asset('img/facebook.png')}}">
-        <img src="{{asset('img/linkedin.png')}}">
-        <img src="{{asset('img/youtube.png')}}"> 
+        <ul class="nav justify-content-center list-unstyled d-flex">
+            <li class="ms-3"><img src="{{asset('img/facebook.png')}}"></li>
+            <li class="ms-3"><img src="{{asset('img/linkedin.png')}}"></li>
+            <li class="ms-3"><img src="{{asset('img/youtube.png')}}"> </li>
+        </ul>
     </div>
     <div class="area-contato">
         <h2>Contato</h2>
-        <span>(11) 3333-4444</span>
+        <span>(13) 98833-0356</span>
         <br>
-        <span>supergestao@dominio.com.br</span>
+        <span>supergestao@crescer.tech</span>
     </div>
     <div class="localizacao">
         <h2>Localização</h2>
-        <img src="{{asset('img/mapa.png')}}">
+        <img class="img-fluid" src="{{asset('img/mapa.png')}}">
     </div>
-</div>
+</footer>

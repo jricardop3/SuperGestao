@@ -3,7 +3,7 @@
 @section('conteudo')
 <div class="conteudo-pagina">
     <div class="titulo-pagina-f">
-        <h1>Produto - Create</h1>
+        <h1>Produto - Editar</h1>
     </div>
 
     
@@ -15,7 +15,7 @@
             </ul>
         </div>
         <div style="width: 30%; margin-left:auto; margin-right:auto;" >
-            @component('app.components.form',['unidades'=>$unidades])
+            @component('app.components.form',['produto'=>$produto, 'unidades' => $unidades])
                 
             @endcomponent
         </div>
