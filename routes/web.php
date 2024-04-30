@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProdutoDetalheController;
 use App\Http\Controllers\SobreNosController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,6 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::post('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedor.adicionar');
     //produtos
     Route::resource('produto', ProdutoController::class);
+    //produto detalhes
+    Route::resource('produto-detalhe', ProdutoDetalheController::class);
 });
