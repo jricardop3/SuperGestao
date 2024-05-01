@@ -14,6 +14,14 @@
                 <li><a href="{{route('produto.index')}}">voltar</a></li>
             </ul>
         </div>
+        <div class="container-fluid mb-3" style="width: 30%; margin-left:auto; margin-right:auto;">
+            <h4 class="border p-2">Produto</h4>
+            <hr>
+            <div>Nome: {{$produto_detalhe->produto->nome}}</div>
+            <hr>
+            <div>Descrição: {{$produto_detalhe->produto->descricao}}</div>
+        </div>
+        
         <div style="width: 30%; margin-left:auto; margin-right:auto;" >
             @component('app.components.form2',['produto_detalhe'=>$produto_detalhe, 'unidades' => $unidades])
                 
