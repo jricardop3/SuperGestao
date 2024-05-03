@@ -20,6 +20,8 @@
             <thead class="table-dark">
                 <th>Nome</th>
                 <th>Descrição</th>
+                <th>Nome fornecedor</th>
+                <th>Site fornecedor</th>
                 <th>Peso</th>
                 <th>Unidade ID</th>
                 <th>Comprimento</th>
@@ -36,6 +38,12 @@
                     </td>
                     <td>
                         {{$produto->descricao}}
+                    </td>
+                    <td>
+                        {{$produto->fornecedor->nome}}
+                    </td>
+                    <td>
+                        {{$produto->fornecedor->site}}
                     </td>
                     <td>
                         {{$produto->peso}}

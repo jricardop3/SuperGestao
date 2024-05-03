@@ -39,6 +39,29 @@
                     <td>
                         <a href="{{route ('app.fornecedor.editar',$fornecedor->id)}}">Editar</a>
                     </td>
+                    <tr>
+                        <td>
+                            <p>Lista de produtos:</p>
+                            <table class="table align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    @foreach($fornecedor->produtos as $produto) <!-- provocar erro: //foreach($fornecedor->produtos as $key => $produto) -->
+                                    <tr>    
+                                        <td>{{$produto->id}}</td>
+                                        <td>{{$produto->nome}}</td> 
+                                    </tr>
+                                    @endforeach
+                                    
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
                 </tbody>
             @endforeach
         </table>
