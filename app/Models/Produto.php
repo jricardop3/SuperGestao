@@ -12,7 +12,8 @@ class Produto extends Model
         'nome',
         'descricao',
         'peso',
-        'unidade_id'
+        'unidade_id',
+        'fornecedor_id'
     ];
     public function produtoDetalhe(){
         return $this->hasOne('App\Models\ProdutoDetalhe');

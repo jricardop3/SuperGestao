@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fornecedor;
 use App\Models\Produto;
 use App\Models\ProdutoDetalhe;
 use App\Models\Unidade;
@@ -38,7 +39,8 @@ class ProdutoController extends Controller
     public function create()
     {
         $unidades = Unidade::all();
-        return view('app.produto.create',['unidades'=>$unidades]);
+        $fornecedores = Fornecedor::all();
+        return view('app.produto.create',['unidades'=>$unidades, 'fornecedores'=>$fornecedores]);
     }
 
     /**
@@ -82,8 +84,8 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $unidades = Unidade::all();
-        
-        return view('app.produto.edit',['produto'=>$produto, 'unidades' => $unidades]);
+        $fornecedores = Fornecedor::all();
+        return view('app.produto.edit',['produto'=>$produto, 'unidades' => $unidades, 'fornecedores'=>$fornecedores]);
         //return view('app.produto.create',['produto'=>$produto, 'unidades' => $unidades]);
     }
 
@@ -92,9 +94,27 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        $produto->update($request->all());
+        $regras =[
+            'nome'=>'required|min:1|max:50',
+            'descricao' => 'required|min:1|max:2500',
+            'peso' => 'required|integer',
+            'unidade_id'=>'exists:unidades,id',
+            'fornecedor_id'=>'exists:fornecedores,id'
+        ];
+        $feedback = [
+            'required'=> 'O campo :attribute deve ser preenchido.',
+            'descricao.max'=> 'O campo não pode ultrapassar 2500 caracteres.',
+            'nome.max'=> 'O campo não pode ultrapassar 50 caracteres.',
+            'peso.integer' => 'Digite um valor valido!',
+            'unidade_id.exists' => 'A Unidade de medida informada, não existe.',
+            'fornecedor_id.exists' => 'O fornecedor informado, não existe.'
 
-        return redirect()->route('produto.show',['produto'=>$produto->id]);
+        ];
+        $request->validate($regras, $feedback);
+        
+        $produto->update($request->all());
+        $fornecedores = Fornecedor::all();
+        return redirect()->route('produto.show',['produto'=>$produto->id, 'fornecedores=>'=>$fornecedores]);
     }
 
     /**

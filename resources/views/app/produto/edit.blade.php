@@ -15,7 +15,7 @@
             </ul>
         </div>
         <div style="width: 30%; margin-left:auto; margin-right:auto;" >
-            @component('app.components.form',['produto'=>$produto, 'unidades' => $unidades])
+            @component('app.components.form',['produto'=>$produto, 'unidades' => $unidades, 'fornecedores'=>$fornecedores])
                 
             @endcomponent
         </div>
