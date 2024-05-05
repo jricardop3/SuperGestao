@@ -13,7 +13,7 @@
           <a class="nav-link" aria-current="page" href="{{route('app.home')}}">Home</a></li>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('app.cliente')}}">Cliente</a></li>
+          <a class="nav-link" href="{{route('cliente.index')}}">Cliente</a></li>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('app.fornecedor')}}">Fornecedor</a></li>

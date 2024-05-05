@@ -1,5 +1,5 @@
 @extends('app.components.layout')
-@section('title',  '- Fornecedor')
+@section('title',  '- Produtos')
 @section('conteudo')
 <div class="conteudo-pagina">
     <div class="titulo-pagina-f">

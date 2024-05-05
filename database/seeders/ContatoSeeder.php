@@ -14,7 +14,7 @@ class ContatoSeeder extends Seeder
      */
     public function run(): void
     {
-        /*
+        
         $contato = new Contato();
         $contato-> nome = 'Jose Ricardo';
         $contato-> telefone = '(13) 98833-0356';
@@ -29,7 +29,7 @@ class ContatoSeeder extends Seeder
             'motivo'=>2,
             'mensagem'=>'Estou sem internet.'
         ]);
-        */
-        Contato::factory(5000)->create();
+        
+        Contato::factory(10)->create();
     }
 }
