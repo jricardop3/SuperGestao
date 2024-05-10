@@ -9,7 +9,7 @@
     <div class="informacao-pagina">
         <div class="contato-principal">
            
-                <h1>Olá</h1>
+                <h1>Bem vindo ao Super Gestão.</h1>
            
         </div>
     </div>  

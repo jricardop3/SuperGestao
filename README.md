@@ -22,8 +22,3 @@ components, extends, include, yield e section.
 
 - Autenticação Web nativa do Framework Laravel.
 
-- Inclusão do pacote UI com Bootstrap.
-
-- Envio de e-mails e geração de arquivos XLSX, CSV e PDF.
-
-obs:antes do segundo jump

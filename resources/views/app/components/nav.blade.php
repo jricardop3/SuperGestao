@@ -16,6 +16,9 @@
           <a class="nav-link" href="{{route('cliente.index')}}">Cliente</a></li>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{{route('pedido.index')}}">Pedido</a></li>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{route('app.fornecedor')}}">Fornecedor</a></li>
         </li>
         <li class="nav-item">

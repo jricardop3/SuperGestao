@@ -4,6 +4,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ContatoController;
@@ -52,5 +53,10 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     //produto
     Route::resource('produto', ProdutoController::class);
     //pedido-produto
-    Route::resource('pedido-produto', PedidoProdutoController::class);
+    //Route::resource('pedido-produto', PedidoProdutoController::class);
+    //pedido
+    Route::resource('pedido', PedidoController::class);
+    //pedido produto
+    Route::get('pedido-produto/create/{pedido}',[PedidoProdutoController::class, 'create'])->name('pedido-produto.create');
+    Route::post('pedido-produto/store/{pedido}',[PedidoProdutoController::class, 'store'])->name('pedido-produto.store');
 });
