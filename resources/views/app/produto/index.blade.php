@@ -73,6 +73,15 @@
                     <td>
                         <a class="btn btn-dark btn-sm" href="{{route('produto.edit',['produto'=>$produto->id])}}">Editar</a>
                     </td>
+                    <tr>
+                        <td colspan="12">
+                            <p>ID pedido:</p>
+                            @foreach ($produto->pedidos as $pedido)
+                            <a href="{{route('pedido-produto.create', ['pedido'=>$pedido->id])}}">Pedido: {{$pedido->id}},</a>
+                                
+                            @endforeach
+                        </td>
+                    </tr>
                 </tbody>
             @endforeach
         </table>

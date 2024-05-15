@@ -25,12 +25,22 @@
                 <thead>
                     <th>ID</th>
                     <th>Nome do produto</th>
+                    <th>Data Inclussão</th>
+                    <th></th>
                 </thead>
                 <tbody>
                     @foreach ($pedido->produtos as $produto)
                     <tr>
                         <td>{{$produto->id}}</td>
                         <td>{{$produto->nome}}</td>
+                        <td>{{$produto->pivot->created_at->format('d/m/Y')}}</td>
+                        <td>
+                            <form method="post" action="{{route('pedido-produto.destroy', ['pedidoProduto'=>$produto->pivot->id, 'pedido_id'=>$pedido->id])}}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm"  type="submit">Deletar</button>
+                            </form>
+                        </td>
                     </tr>
                         
                     @endforeach

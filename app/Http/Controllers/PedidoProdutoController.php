@@ -33,18 +33,27 @@ class PedidoProdutoController extends Controller
     public function store(Request $request, Pedido $pedido)
     {
         $regras = [
-            'produto_id' => 'exists:produtos,id'
+            'produto_id' => 'exists:produtos,id',
+            'quantidade' => 'required'
         ];
         $feedback = [
-            'produto_id.exists' => 'O Produto não consta em nosso banco de dados!'
+            'produto_id.exists' => 'O Produto não consta em nosso banco de dados!',
+            'required' => 'O Campo :attribute deve ter um valor valido!'
         ];
         $request->validate($regras, $feedback);
-         echo $pedido->id. ' - '.$request->get('produto_id');
+
+
+         /*
          $pedidoProduto = new PedidoProduto();
          $pedidoProduto->pedido_id = $pedido->id;
          $pedidoProduto->produto_id = $request->get('produto_id');
+         $pedidoProduto->quantidade = $request->get('quantidade');
          $pedidoProduto->save();
-
+        */
+        $pedido->produtos()->attach(
+            $request->get('produto_id'),
+            ['quantidade'=> $request->get('quantidade')]
+        );
          return redirect()->route('pedido-produto.create', ['pedido' => $pedido->id]);
         
     }
@@ -76,8 +85,10 @@ class PedidoProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(PedidoProduto $pedidoProduto, $pedido_id )
     {
-        //
+       
+        $pedidoProduto->delete();
+        return redirect()->route('pedido-produto.create', ['pedido' => $pedido_id]);
     }
 }
